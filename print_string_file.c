@@ -12,7 +12,7 @@ void print_string_func(stack_t **head, unsigned int counter)
 	(void)counter;
 
 	h = *head;
-	while (h)
+	for (;h;)
 	{
 		if (h->n > 127 || h->n <= 0)
 		{
