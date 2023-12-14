@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
-  *nope_func- nothing
+  *nope_func-  doesn’t do anything.
   *@head: stack head
   *@counter: line_number
   *Return: no return
