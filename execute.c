@@ -1,30 +1,30 @@
 #include "monty.h"
 /**
-* execute - executes the opcode
+* execution_fun - executes the opcode
 * @stack: head linked list - stack
 * @counter: line_counter
 * @file: poiner to monty file
 * @content: line content
 * Return: no return
 */
-int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
+int execution_fun(char *content, stack_t **stack, unsigned int counter, FILE *file)
 {
 	instruction_t opst[] = {
-				{"push", f_push}, {"pall", f_pall}, {"pint", f_pint},
-				{"pop", f_pop},
-				{"swap", f_swap},
-				{"add", f_add},
-				{"nop", f_nop},
-				{"sub", f_sub},
-				{"div", f_div},
-				{"mul", f_mul},
-				{"mod", f_mod},
-				{"pchar", f_pchar},
-				{"pstr", f_pstr},
-				{"rotl", f_rotl},
-				{"rotr", f_rotr},
-				{"queue", f_queue},
-				{"stack", f_stack},
+				{"push", push_func}, {"pall", pall_func}, {"pint", pint_func},
+				{"pop", pop_func},
+				{"swap", swap_func},
+				{"add", add_func},
+				{"nop", nope_func},
+				{"sub", subract_func},
+				{"div", div_func},
+				{"mul", mul_func},
+				{"mod", mod_func},
+				{"pchar", print_char_func},
+				{"pstr", print_string_func},
+				{"rotl", rotate_func},
+				{"rotr", rotate_bottom_func},
+				{"queue", queue_func},
+				{"stack", stack_func},
 				{NULL, NULL}
 				};
 	unsigned int i = 0;
@@ -46,7 +46,7 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 	{ fprintf(stderr, "L%d: unknown instruction %s\n", counter, op);
 		fclose(file);
 		free(content);
-		free_stack(*stack);
+		free_stack_func(*stack);
 		exit(EXIT_FAILURE); }
 	return (1);
 }
